@@ -77,8 +77,8 @@ WSGI_APPLICATION = 'hockeyblog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.psql',
-        'NAME': os.path.join(BASE_DIR, 'hockeyblog.psql'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'hockeyblog',
     }
 }
 
