@@ -19,7 +19,7 @@ body{
     width: 80%;
     margin: 1em auto;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 5fr 2fr;
     grid-gap: 1em;
     background-color: white !important;
     padding: 0.5em;
@@ -27,22 +27,21 @@ body{
 
 .left{
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: fit-content(30%);
     grid-gap: 1em;
 }
 
 .featured{
     grid-column-start: 1;
     width: 100%;
-    border: 1px solid rgba(0,0,0,0.125);
-
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .recent{
     grid-column-start: 1;
     grid-row-start: 2;
     width: 100%;
-    border: 1px solid rgba(0,0,0,0.125);
+    border: 1px solid rgba(0,0,0,0.05);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1em;
@@ -60,14 +59,14 @@ body{
 .about{
     grid-row-start: 1;
     width: 100%;
-    border: 1px solid rgba(0,0,0,0.125);
+    border: 1px solid rgba(0,0,0,0.05);
     padding: 1em;
 }
 
 .social{
     grid-row-start: 2;
     width: 100%;
-    border: 1px solid rgba(0,0,0,0.125);
+    border: 1px solid rgba(0,0,0,0.05);
     text-align: center;
 }
 
@@ -75,7 +74,7 @@ body{
 .feature-article-img{
     width: 90%;
     margin: 0.5em auto;
-    height: 75%;
+    height: auto%;
     text-align: center;
 }
 
@@ -87,7 +86,7 @@ body{
 
 .feature-article-txt{
     width: 90% !important;
-    margin: 0 auto !important;
+    margin: 1em auto !important;
 }
 
 .feature-article-txt > .body{
@@ -117,3 +116,62 @@ body{
     width: 60%;
     margin: 1em auto;
 }
+
+/*====================================== 
+          Responsive Home PAGE 
+========================================*/
+
+@media only screen and (max-width: 1000px) {
+    .home{
+        width: 100%;
+        margin: 1em auto;
+        display: grid;
+        grid-template-columns: 5fr 2fr;
+        grid-gap: 1em;
+        background-color: white !important;
+        padding: 0.5em;
+    } 
+    .article{
+        width: 80%;
+        margin: 1em auto;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .home{
+        width: 100%;
+        margin: 1em auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1em;
+        background-color: white !important;
+        padding: 0.5em;
+    } 
+    .more{
+        grid-column-start: 1;
+        grid-row-start: 3;
+        display: grid;
+        grid-template-rows: 16em auto;
+        gap: 1em;
+    }
+    .left{
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-gap: 1em;
+    }
+    .recent{
+        grid-column-start: 1;
+        grid-row-start: 2;
+        width: 100%;
+        border: 1px solid rgba(0,0,0,0.125);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+        padding: 1em;
+    }
+    .article{
+        width: 90%;
+        margin: 1em auto;
+    }
+
+  }

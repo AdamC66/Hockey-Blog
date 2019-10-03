@@ -6,7 +6,7 @@
 <main class="article">
 <div class="jumbotron">
   <h1 class="display-3">{{ post.title}}</h1>
-  <p class="lead">{{post.author}} on {{post.created_on}}</p>
+  <p class="lead">{{post.author}} on {{post.created_on|date:"F j Y"}}</p>
   <hr class="my-4">
   <p>{{post.content}}</p>
 
