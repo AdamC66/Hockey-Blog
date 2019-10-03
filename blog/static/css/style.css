@@ -25,10 +25,16 @@ body{
     padding: 0.5em;
 }
 
+.left{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1em;
+}
+
 .featured{
     grid-column-start: 1;
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,0.125);
 
 }
 
@@ -36,7 +42,7 @@ body{
     grid-column-start: 1;
     grid-row-start: 2;
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,0.125);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1em;
@@ -46,24 +52,25 @@ body{
 .more{
     grid-column-start: 2;
     grid-row-start: 1;
-    grid-row-end: 2;
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 16em auto;
+    gap: 1em;
 }
 
 .about{
     grid-row-start: 1;
     width: 100%;
-    height: 8em;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,0.125);
+    padding: 1em;
 }
 
 .social{
     grid-row-start: 2;
     width: 100%;
-    height: 12em;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,0.125);
+    text-align: center;
 }
+
 
 .feature-article-img{
     width: 90%;
@@ -84,11 +91,12 @@ body{
 }
 
 .feature-article-txt > .body{
-    padding: 0.5em;
+    padding: 0.5em 0.5em 0em 0.5em;
+    margin: 0;
 }
 
 .feature-article-txt > .created{
-    padding: 0em 0.5em;
+    padding: 0.25em 0.5em;
     margin: 0;
     opacity: 0.7;
 }
@@ -99,4 +107,13 @@ body{
 
 .post-list{
     margin: 1em;
+}
+
+/*====================================== 
+          SINGLE POSTS PAGE 
+========================================*/
+
+.article{
+    width: 60%;
+    margin: 1em auto;
 }

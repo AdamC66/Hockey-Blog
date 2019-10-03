@@ -4,41 +4,43 @@
 {% block content %}
 
 <main class="home">
-    <section class="featured">
-        <div class='feature-article-img mb-3'>
-            <img src="https://picsum.photos/900/400" alt="">
-        </div>
-        <div class="feature-article-txt card border-light mb-3">
-            <h3 class="card-header" style="font-weight: 700"> {{ feature.title }} </h3>
-            <p class='body'> {{ feature.content|slice:200 }} </p>
-
-            <p class='body'><a href="{% url 'article' feature.slug  %}" class="btn btn-primary" style="margin:0">Read More &rarr;</a></p>
-
-            <p class='created'>{{feature.author}} on {{feature.created_on}}</p>
-        </div>
-    </section>
-
-    <section class="recent">
-        {% for post in recent %}
-        <div class="card mb-3">
-            <h3 class="card-header" style="font-weight: 700">{{post.title}}</h3>
-            <img style="height: 200px; width: 100%; display: block;" src="https://picsum.photos/900/400" alt="Card image">
-            <div class="card-body">
-              <p class="card-text">{{ post.content|slice:100 }} </p>
-              <a href="{% url 'article' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+    <section class='left'>
+        <section class="featured">
+            <div class='feature-article-img mb-3'>
+                <img src="https://picsum.photos/900/400" alt="">
             </div>
-        </div>
-        {% endfor %}
+            <div class="feature-article-txt card border-light mb-3">
+                <h3 class="card-header" style="font-weight: 700"> {{ feature.title }} </h3>
+                <p class='body'> {{ feature.content|slice:200 }} </p>
+
+                <p class='body'><a href="{% url 'article' feature.slug  %}" class="btn btn-primary" style="margin:0">Read More &rarr;</a></p>
+
+                <p class='created'>{{feature.author}} on {{feature.created_on}}</p>
+            </div>
+        </section>
+        <section class="recent">
+            {% for post in recent %}
+            <div class="card mb-3">
+                <h3 class="card-header" style="font-weight: 700">{{post.title}}</h3>
+                <img style="height: 200px; width: 100%; display: block;" src="https://picsum.photos/900/400" alt="Card image">
+                <div class="card-body">
+                <p class="card-text">{{ post.content|slice:100 }} </p>
+                <a href="{% url 'article' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
     </section>
+
     <aside class="more">
         <section class='about'>
-        ABOUT
+        <h3> About the Blog </h3>
+        <p> I'm working on this blog partly as procrastination from a larger project, and partly because it's an idea I've had for a while that also gives me the opportunity to practice with Python and Django </p>
         </section>
 
         <section class='social'>
-        SOCIAL
+            <a class="twitter-timeline" data-width="350" data-height="800" href="https://twitter.com/ToeInTheCrease?ref_src=twsrc%5Etfw">Tweets by ToeInTheCrease</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </section>
-
     </aside>
 </main>
 
