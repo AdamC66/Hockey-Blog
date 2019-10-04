@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main class="article">
+<form action='{{ action }}' method='POST'>
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+    <input type="submit"/>
+</form>
+</main>
+
+
+{% endblock content %}
+

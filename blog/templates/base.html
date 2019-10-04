@@ -17,7 +17,7 @@
     {% comment %} Latest compiled JavaScript {% endcomment %}
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     
-    <title>{% block title %} Hockey Blog {% endblock title%} </title>
+    <title>{% block title %} Toe in the Crease Blog {% endblock title%} </title>
 </head>
 <body>
     <header>
@@ -39,6 +39,14 @@
         <li class="nav-item">
             <a class="nav-link" href="#"><h3>About</h3></a>
         </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'new_post'%}"><h3>New Post</h3></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'all_posts' %}"><h3>All Posts</h3></a>
+        </li>
+        {% endif %}
         </ul>
         <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
