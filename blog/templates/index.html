@@ -14,7 +14,7 @@
                 <img src="https://picsum.photos/900/400" alt="">
                 </div>
                 
-                <p class='body'> {{ feature.content|slice:200 }} </p>
+                <p class='body'> {{ feature.content|slice:200|safe }} </p>
 
                 <p class='body'><a href="{% url 'article' feature.slug  %}" class="btn btn-primary" style="margin:0">Read More &rarr;</a></p>
 
@@ -27,7 +27,7 @@
                 <h3 class="card-header" style="font-weight: 700">{{post.title}}</h3>
                 <img style="height: 200px; width: 100%; display: block;" src="https://picsum.photos/900/400" alt="Card image">
                 <div class="card-body">
-                <p class="card-text">{{ post.content|slice:100 }} </p>
+                <p class="card-text">{{ post.content|slice:100|safe }} </p>
                 <a href="{% url 'article' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
             </div>

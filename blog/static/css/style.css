@@ -4,7 +4,7 @@
     text-align: center;
     font-size: 2.5em;
     background-color: white;
-    font-family: 'Notable', sans-serif;
+    font-family: 'Alfa Slab One', cursive;
 }
 
 body{
@@ -115,6 +115,11 @@ body{
 .article{
     width: 60%;
     margin: 1em auto;
+}
+
+.post-content img {
+    display: block;
+    margin: 0 auto;
 }
 
 /*====================================== 

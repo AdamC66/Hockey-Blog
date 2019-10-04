@@ -8,8 +8,9 @@
   <h1 class="display-3">{{ post.title}}</h1>
   <p class="lead">{{post.author}} on {{post.created_on|date:"F j Y"}}</p>
   <hr class="my-4">
-  <p>{{post.content}}</p>
-
+  <div class='post-content'>
+  {{post.content|safe}}
+  </div>
 </div>
 </main>
 

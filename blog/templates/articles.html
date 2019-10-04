@@ -8,7 +8,7 @@
             <div class="card mb-3">
                 <h3 class="card-header" style="font-weight: 700">{{post.title}}</h3>
                 <div class="card-body">
-                <p class="card-text">{{ post.content|slice:200 }} </p>
+                <p class="card-text">{{ post.content|slice:200|safe }} </p>
                 <a href="{% url 'article' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
             </div>
