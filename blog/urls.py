@@ -16,12 +16,16 @@ Including another URLconf
 
 from django.urls import path
 from . import views
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('posts/', views.PostList.as_view(), name='posts'),
     path('posts/<slug:slug>/', views.article, name='article'),
     path('newpost/', views.new_post, name='new_post'),
-    path('allposts', views.all_posts.as_view(), name='all_posts'),
+    path('allposts', login_required(views.all_posts.as_view()), name='all_posts'),
     path('edit/<slug:slug>/', views.edit_post, name="edit_post"),
+    path('login/', views.login_view, name='login'),
+    path('logout/', LogoutView.as_view(), {'next_page': 'views.home'}, name='logout'),
 ]

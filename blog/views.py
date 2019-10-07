@@ -6,7 +6,9 @@ import datetime
 from .models import *
 from .forms import PostForm
 from django.utils.text import slugify
-
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 # Create your views here.
 def home(request):
     feature = Post.objects.filter(status=1).latest('created_on')
@@ -23,6 +25,7 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'articles.html'
 
+@login_required
 def new_post(request):
     if request.method == 'GET':
         context = {'form': PostForm(), 'action': '/newpost/'}
@@ -38,6 +41,7 @@ def new_post(request):
             context = {'form':form}
             return render(request, 'newpost.html', context)
 
+@login_required
 def edit_post(request, slug):
     post_to_edit = Post.objects.get(slug=slug)
     form = PostForm(request.POST or None, instance = post_to_edit)
@@ -51,7 +55,30 @@ def edit_post(request, slug):
         context = {'form': form, 'action': f'/edit/{slug}/'}
         return render(request, 'newpost.html', context)
 
+
 class all_posts(generic.ListView):
     queryset = Post.objects.filter()
     template_name = 'articles.html'
+
+def login_view(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+    
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            pw = form.cleaned_data['password']
+            user = authenticate(username=username, password=pw)
+            
+            if user is not None:
+                login(request, user)
+                return HttpResponseRedirect('/')
+            else:
+                form.add_error('username', 'Login failed')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {
+        'form': form
+    }) 
 

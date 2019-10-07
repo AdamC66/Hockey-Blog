@@ -133,3 +133,8 @@ CKEDITOR_CONFIGS = {
         'width': 800,
     },
 }
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/login'
+
