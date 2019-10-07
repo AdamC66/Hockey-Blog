@@ -26,6 +26,7 @@ urlpatterns = [
     path('newpost/', views.new_post, name='new_post'),
     path('allposts', login_required(views.all_posts.as_view()), name='all_posts'),
     path('edit/<slug:slug>/', views.edit_post, name="edit_post"),
+    path('delete/<slug:slug>/', views.delete_post, name="delete_post"),
     path('login/', views.login_view, name='login'),
     path('logout/', LogoutView.as_view(), {'next_page': 'views.home'}, name='logout'),
 ]

@@ -60,6 +60,13 @@ class all_posts(generic.ListView):
     queryset = Post.objects.filter()
     template_name = 'articles.html'
 
+def delete_post(request, slug):
+    post_to_delete = Post.objects.get(slug=slug)
+    post_to_delete.delete()
+    return redirect('all_posts')
+    
+    
+
 def login_view(request):
     if request.user.is_authenticated:
         return redirect('/')

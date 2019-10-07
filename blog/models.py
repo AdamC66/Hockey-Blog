@@ -10,6 +10,7 @@ STATUS = (
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
+    lead_photo = models.URLField(null=True, blank=True)
     author = models.CharField(max_length=200)
     updated_on = models.DateTimeField(auto_now= True)
     content = RichTextField()

@@ -15,7 +15,8 @@ class PostForm(ModelForm):
     title = CharField()
     author = CharField()
     status = ChoiceField(choices=STATUS)
+    lead_photo = URLField()
     content = CharField(widget=CKEditorWidget())
     class Meta:
         model = Post
-        fields = ['title', 'author','status', 'content']
+        fields = ['title', 'author','status','lead_photo', 'content']

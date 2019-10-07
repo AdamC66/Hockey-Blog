@@ -11,7 +11,11 @@
                 <h3 class="card-header" style="font-weight: 700"> {{ feature.title }} </h3>
                 
                 <div class='feature-article-img mb-3'>
+                {% if feature.lead_photo %}
+                <img src="{{ feature.lead_photo }}" alt="">
+                {% else %}
                 <img src="https://picsum.photos/900/400" alt="">
+                {% endif %}
                 </div>
                 
                 <p class='body'> {{ feature.content|slice:200|safe }} </p>
@@ -25,7 +29,13 @@
             {% for post in recent %}
             <div class="card mb-3">
                 <h3 class="card-header" style="font-weight: 700">{{post.title}}</h3>
+                {% if post.lead_photo %}
+                <img style="height: auto; width: 100%; display: block;" src="{{ post.lead_photo }}" alt="Card image">
+                {% else %}
                 <img style="height: 200px; width: 100%; display: block;" src="https://picsum.photos/900/400" alt="Card image">
+                {% endif %}
+
+                
                 <div class="card-body">
                 <p class="card-text">{{ post.content|slice:100|safe }} </p>
                 <a href="{% url 'article' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
