@@ -39,7 +39,11 @@
         <li class="nav-item">
             <a class="nav-link" href="#"><h3>About</h3></a>
         </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+        
         {% if user.is_authenticated %}
+        <ul class="navbar-nav mr-auto">
         <li class="nav-item">
             <a class="nav-link" href="{% url 'new_post'%}"><h3>New Post</h3></a>
         </li>
@@ -49,9 +53,8 @@
         <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}"><h3>Logout</h3></a>
         </li>
-        {% endif %}
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        {% endif %}
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
         </form>
